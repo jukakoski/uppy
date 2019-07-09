@@ -116,7 +116,10 @@ deploy:
   skip_cleanup: true
   script: bin/travis-deploy
   on:
-    branch: deploy-test
+    # Doesn't work if we set `branch: master` for some reason,
+    # but $WEBSITE is only set by the matrix config on the master branch anyway,
+    # so this works too…
+    all_branches: true
     condition: "-n ${WEBSITE-}"
 - provider: script
   skip_cleanup: true
