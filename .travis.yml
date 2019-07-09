@@ -116,11 +116,11 @@ deploy:
   skip_cleanup: true
   script: bin/travis-deploy
   on:
-    branch: master
-    condition: -n ${WEBSITE-}
+    branch: deploy-test
+    condition: "-n ${WEBSITE-}"
 - provider: script
   skip_cleanup: true
   script: packages/@uppy/companion/infra/kube/gcloud-deploy.sh
   on:
     branch: master
-    condition: -n ${COMPANION-}
+    condition: "-n ${COMPANION-}"
